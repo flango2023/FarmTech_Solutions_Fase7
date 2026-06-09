@@ -217,14 +217,6 @@ RECOMMENDED ACTIONS:
 3. Monitor crop for heat stress
 4. Apply fertilizer — check N, P, K levels
 
-Please log in to the FarmTech dashboard for full details.
-```
-
-![Dashboard SNS sucesso](docs/aws/sns_dashboard_sucesso.png)
-> _Print da dashboard FarmTech mostrando `"success": true` com o MessageId retornado pela AWS após a publicação do alerta._
-
-![E-mail de alerta recebido](docs/aws/sns_email_recebido.png)
-> _Print do e-mail recebido em `xxxxxx@xxxxx.com` com todas as issues detectadas e as 4 ações recomendadas aos funcionários da fazenda._
 
 ### Ações automáticas mapeadas
 

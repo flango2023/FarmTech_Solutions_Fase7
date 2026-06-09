@@ -13,14 +13,15 @@
 
 **Autor:** Richard Schmitz | **RM:** 567951  
 **Disciplina:** Artificial Intelligence — FIAP  
+  <strong>Fase:</strong> 7 — A Consolidação de um Sistema
+</p>
 
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Tractor_psf.svg/240px-Tractor_psf.svg.png" width="120" alt="FarmTech">
 </p>
 
 <p align="center">
-  <strong>FIAP — Inteligência Artificial</strong><br>
-  <strong>Autor:</strong> Richard Schmitz &nbsp;|&nbsp; <strong>RM:</strong> 567951<br>
+
   <strong>Fase:</strong> 7 — A Consolidação de um Sistema
 </p>
 

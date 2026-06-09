@@ -16,14 +16,6 @@
   <strong>Fase:</strong> 7 — A Consolidação de um Sistema
 </p>
 
-<p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Tractor_psf.svg/240px-Tractor_psf.svg.png" width="120" alt="FarmTech">
-</p>
-
-<p align="center">
-
-  <strong>Fase:</strong> 7 — A Consolidação de um Sistema
-</p>
 
 ---
 

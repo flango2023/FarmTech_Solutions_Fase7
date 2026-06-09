@@ -196,8 +196,7 @@ O sistema AWS enviou automaticamente um e-mail de confirmação com um link, que
 ![SNS Inscrições ativas](docs/aws/sns_subscriptions.png)
 > _Print do console da AWS mostrando a inscrição de e-mail com status "Confirmed" no tópico `Farmtech_alertas`
 >
-> Prova do alerta recebido no e-mail cadastrado, contendo recomendações agrícolas.
-![AWS SNS — Email de alerta recebido](screenshots/11_sns_email_recebido.png)
+
 
 
 ![AWS SNS — Inscrições ativas](screenshots/15_sns_active_subscriptions.png)

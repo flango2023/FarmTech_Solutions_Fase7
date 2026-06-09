@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+env/
+
+# Banco de dados local
+data/farmtech.db
+
+# Imagens carregadas pelo usuario
+dataset/images/uploaded/
+
+# Secrets / credenciais
+.env
+*.pem
+aws_credentials*
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+.Rhistory

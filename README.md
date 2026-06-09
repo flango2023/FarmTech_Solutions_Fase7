@@ -1,4 +1,20 @@
+# FIAP - Faculdade de Informática e Administração Paulista
+
+<p align="center">
+<a href= "https://www.fiap.com.br/"><img src="assets/logo-fiap.png" alt="FIAP - Faculdade de Informática e Admnistração Paulista" border="0" width=40% height=40%></a>
+</p>
+
+<br>
+
 # FarmTech Solutions — Fase 7: A Consolidação de um Sistema
+
+[![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![YOLOv5](https://img.shields.io/badge/YOLOv5-v7.0-green.svg)](https://github.com/ultralytics/yolov5)
+[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/flango2023/FarmTech-Solutions-Fase6/blob/main/RichardSchmitz_rm567951_pbl_fase6.ipynb)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+**Autor:** Richard Schmitz | **RM:** 567951  
+**Disciplina:** Artificial Intelligence — FIAP  
 
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Tractor_psf.svg/240px-Tractor_psf.svg.png" width="120" alt="FarmTech">
@@ -11,6 +27,227 @@
 </p>
 
 ---
+
+## 📋 Sobre o projeto
+
+A Fase 7 consolida em um **único projeto Python** todos os serviços construídos ao longo do curso da FIAP, das Fases 1 a 6, integrando-os em uma **dashboard Streamlit unificada**. Cada fase aparece como uma página no menu lateral, com botões que disparam o serviço correspondente.
+
+Além disso, esta fase entrega:
+- 🔔 **Serviço AWS SNS** que dispara alertas por **e-mail e SMS** aos funcionários da fazenda, baseado em leituras dos sensores das Fases 1, 3 ou nas detecções da Fase 6.
+- 🚀 **"Ir Além" — AWS Rekognition** complementar à visão computacional da Fase 6, com análise de imagens em nuvem.
+
+---
+
+## 🗂️ Estrutura do repositório
+
+```
+FarmTech-Solutions-Fase7/
+├── app.py                          ← Dashboard Streamlit unificado (entry point)
+├── requirements.txt                ← Dependências Python
+├── README.md                       ← Este arquivo
+├── .gitignore
+│
+├── phases/                         ← Um módulo por fase
+│   ├── __init__.py
+│   ├── fase1_area_calc.py         ← Cálculo de área + CRUD em SQLite
+│   ├── fase2_weather.py           ← API meteorológica OpenWeather
+│   ├── fase3_database.py          ← Banco de dados estruturado (SQLite c/ schema Oracle)
+│   ├── fase4_ml.py                ← Pipeline de Machine Learning
+│   └── fase6_vision.py            ← Visão computacional YOLOv5
+│
+├── alerts/                         ← Fase 5 — mensageria AWS
+│   ├── __init__.py
+│   └── sns_alerts.py              ← Integração AWS SNS (e-mail + SMS)
+│
+├── rekognition/                    ← "Ir Além" — AWS Rekognition
+│   ├── __init__.py
+│   └── aws_rekognition.py
+│
+├── scripts/
+│   └── gerar_dados.py             ← Gerador reprodutível de dataset sintético
+│
+├── data/
+│   ├── dados_sensores.csv         ← Leituras de sensores (300 linhas)
+│   ├── dados_treinamento.csv      ← Mesmo dataset usado p/ ML
+│   └── farmtech.db                ← SQLite criado em runtime
+│
+├── dataset/
+│   └── images/test/               ← Imagens de teste p/ Fase 6 (car, drone)
+│
+├── models/                         ← Modelos ML treinados + scalers (.pkl)
+│   ├── modelo_irrigacao.pkl
+│   ├── modelo_umidade.pkl
+│   ├── modelo_ph.pkl
+│   ├── modelo_rendimento.pkl
+│   ├── scaler_*.pkl
+│   └── metricas.json
+│
+└── docs/
+    └── architecture.md             ← Diagrama de arquitetura + decisões técnicas
+```
+
+---
+
+## 🚀 Como executar
+
+### 1. Pré-requisitos
+
+- Python 3.10 ou superior
+- (Opcional) Conta AWS com credenciais configuradas via `aws configure`
+- (Opcional) Chave da API [OpenWeather](https://openweathermap.org/api) — sem ela, o sistema usa fallback simulado
+
+### 2. Instalação
+
+```bash
+# Clone o repositório
+git clone https://github.com/SEU_USUARIO/FarmTech-Solutions-Fase7.git
+cd FarmTech-Solutions-Fase7
+
+# Crie um ambiente virtual
+python3 -m venv .venv
+source .venv/bin/activate   # macOS / Linux
+# .venv\Scripts\activate    # Windows
+
+# Instale dependências
+pip install -r requirements.txt
+```
+
+### 3. Gerar dados e treinar modelos (primeira execução)
+
+```bash
+python scripts/gerar_dados.py     # Gera dataset sintético reprodutível (seed=42)
+```
+
+Depois, dentro da dashboard, clique em **"Fase 4 → Treinar / re-treinar modelos"** para regenerar os `.pkl`.
+
+### 4. Subir a dashboard
+
+```bash
+streamlit run app.py
+```
+
+Acesse `http://localhost:8501` no navegador.
+
+---
+
+## 🧭 Navegação da dashboard
+
+Cada item do menu lateral dispara um serviço:
+
+| Página | Fase | O que faz |
+|--------|------|-----------|
+| 🏠 Visão Geral | — | KPIs agregados e arquitetura |
+| 🌱 Fase 1 — Área & Insumos | 1 | CRUD de culturas com cálculo de área e dosagem de insumos |
+| 🌦️ Fase 2 — Clima | 2 | Consulta OpenWeather + recomendação de irrigação |
+| 🗄️ Fase 3 — Banco de Dados | 3 | Visualiza, insere e analisa leituras de sensores |
+| 🤖 Fase 4 — Machine Learning | 4 | Treina modelos, exibe métricas e faz predições interativas |
+| 📷 Fase 6 — Visão Computacional | 6 | Inferência YOLOv5 em imagens (carros / drones) |
+| ☁️ Fase 5 — AWS SNS | 5 | Inscreve e-mail / SMS e dispara alertas |
+| 🚀 Ir Além — Rekognition | Extra | Análise de imagens via AWS Rekognition |
+
+---
+
+## ☁️ Configuração do serviço AWS SNS (Fase 5)
+
+O sistema usa **Amazon SNS** para entrega de alertas. Os funcionários se inscrevem com e-mail ou telefone, e recebem mensagens automáticas quando:
+
+- Umidade do solo < 60% **ou** > 80%
+- pH fora da faixa 6.0–6.8
+- Temperatura > 30°C (estresse térmico)
+- Nutrientes NPK insuficientes (< 2 de 3)
+- Detecção de carro/drone não autorizado (Fase 6)
+
+### Passo a passo — implementado e testado ✅
+
+**1. Criação do tópico SNS**
+
+O tópico `Farmtech_alertas` foi criado no AWS Console → Simple Notification Service → Topics → Create topic:
+- Tipo: **Standard**
+- Nome: `Farmtech_alertas`
+- ARN gerado: `arn:aws:sns:us-east-1:311141542302:Farmtech_alertas`
+- Conta AWS: `311141542302`
+- Região: `us-east-1`
+
+![SNS Tópico criado](docs/aws/sns_topic_criado.png)
+> _Print do console AWS mostrando o tópico `Farmtech_alertas` criado com sucesso, incluindo ARN, tipo Standard e ID do proprietário._
+
+---
+
+**2. Configuração do ARN no código**
+
+O ARN foi configurado diretamente em `alerts/sns_alerts.py`:
+
+```python
+TOPIC_ARN = "arn:aws:sns:us-east-1:311141542302:Farmtech_alertas"
+AWS_REGION = "us-east-1"
+```
+
+As credenciais AWS foram configuradas via `aws configure` com o usuário IAM `richard-adm` (conta `311141542302`).
+
+---
+
+**3. Inscrição de e-mail confirmada**
+
+O e-mail `schmitz.de@icloud.com` foi inscrito no tópico via dashboard → aba "Inscrever email/SMS" → botão "Inscrever email".
+O sistema AWS enviou automaticamente um e-mail de confirmação com link, que foi clicado para ativar a inscrição.
+
+![SNS Inscrição confirmada](docs/aws/sns_subscription_confirmed.png)
+> _Print da página de confirmação da AWS: "Subscription confirmed! Your subscription's id is: arn:aws:sns:us-east-1:311141542302:Farmtech_alertas:5c29fffc-0f2c-4251-a39f-19d4d5f27cab"_
+
+![SNS Inscrições ativas](docs/aws/sns_subscriptions.png)
+> _Print do console AWS mostrando a inscrição de e-mail com status "Confirmed" no tópico `Farmtech_alertas`._
+
+---
+
+**4. Alerta disparado e recebido**
+
+Usando a dashboard → aba "Disparar alerta de sensor" com valores críticos simulados:
+- Umidade: **45%** (abaixo de 60%)
+- pH: **5.7** (fora da faixa 6.0–6.8)
+- Temperatura: **32°C** (acima de 30°C)
+- Nutrientes: **1/3** (insuficientes)
+
+O sistema publicou a mensagem no tópico SNS e o e-mail chegou em segundos com o seguinte conteúdo:
+
+```
+FarmTech Solutions — Automated Alert
+Timestamp: 2026-06-09 16:26:24
+
+ISSUES DETECTED:
+• Soil humidity LOW (45.0%)
+• Soil pH out of range (5.7)
+• High temperature (32°C)
+• Low NPK nutrients (1/3)
+
+RECOMMENDED ACTIONS:
+1. Activate irrigation pump immediately
+2. Apply lime or acidifier to correct pH
+3. Monitor crop for heat stress
+4. Apply fertilizer — check N, P, K levels
+
+Please log into the FarmTech dashboard for full details.
+```
+
+![Dashboard SNS sucesso](docs/aws/sns_dashboard_sucesso.png)
+> _Print da dashboard FarmTech mostrando `"success": true` com o MessageId retornado pela AWS após publicação do alerta._
+
+![E-mail de alerta recebido](docs/aws/sns_email_recebido.png)
+> _Print do e-mail recebido em `schmitz.de@icloud.com` com todas as issues detectadas e as 4 ações recomendadas aos funcionários da fazenda._
+
+### Ações automáticas mapeadas
+
+| Condição detectada | Ação recomendada |
+|--------------------|------------------|
+| Umidade < 60% | Ativar bomba de irrigação |
+| Umidade > 80% | Verificar sistema de drenagem |
+| pH < 6.0 | Aplicar calcário (corretivo de acidez) |
+| pH > 6.8 | Aplicar acidificante |
+| Temperatura > 30°C | Monitorar estresse térmico |
+| Nutrientes < 2 NPK | Aplicar fertilizante específico |
+| Detecção de drone/carro | Inspecionar perímetro imediatamente |
+
+---
+
 
 ## 🎥 Vídeo demonstrativo
 

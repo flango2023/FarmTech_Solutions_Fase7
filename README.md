@@ -168,7 +168,7 @@ O tópico `Farmtech_alertas` foi criado no AWS Console → Simple Notification S
 - Região: `us-east-1`
 
 ![SNS Tópico criado](docs/aws/sns_topic_criado.png)
-> _Print do console AWS mostrando o tópico `Farmtech_alertas` criado com sucesso, incluindo ARN, tipo Standard e ID do proprietário._
+> _Print do console da AWS mostrando o tópico `Farmtech_alertas` criado com sucesso, incluindo ARN, tipo Standard e ID do proprietário._
 
 ---
 
@@ -194,7 +194,7 @@ O sistema AWS enviou automaticamente um e-mail de confirmação com um link, que
 > _Print da página de confirmação da AWS: "Subscription confirmed! Your subscription's id is: arn:aws:sns:us-east-1:311141542302:Farmtech_alertas:5c29fffc-0f2c-4251-a39f-19d4d5f27cab"_
 
 ![SNS Inscrições ativas](docs/aws/sns_subscriptions.png)
-> _Print do console AWS mostrando a inscrição de e-mail com status "Confirmed" no tópico `Farmtech_alertas`._
+> _Print do console da AWS mostrando a inscrição de e-mail com status "Confirmed" no tópico `Farmtech_alertas`._
 
 ---
 
@@ -248,86 +248,6 @@ Please log in to the FarmTech dashboard for full details.
 ---
 
 ---
-
-## 📸 Screenshots do sistema em funcionamento
-
-Todas as capturas abaixo foram realizadas durante a execução real do sistema em `http://localhost:8501`.
-
-### 🏠 Dashboard — Visão Geral
-![Dashboard Visão Geral](screenshots/01_dashboard_visao_geral.png)
-> Tela inicial do sistema consolidado mostrando os KPIs em tempo real: 300 leituras de sensores, 33 irrigações acionadas, umidade média 66.3% e pH médio 6.43. A tabela de arquitetura confirma que todas as Fases 1–7 e o "Ir Além" estão integrados.
-
----
-
-### 🌱 Fase 1 — Cálculo de Área e Gestão de Insumos
-![Fase 1 CRUD](screenshots/02_fase1_area_insumos_crud.png)
-> Módulo de cadastro de culturas com cálculo automático de área e dosagem de insumos. No exemplo: café com 100m × 50m = **5.000 m²** e **2.500 kg** de fertilizante calculados automaticamente. CRUD completo persistido em SQLite.
-
----
-
-### 🌦️ Fase 2 — Integração com API Meteorológica
-![Fase 2 Clima](screenshots/03_fase2_clima_api_meteorologica.png)
-> Consulta à API OpenWeather (com fallback simulado quando sem chave). Exibe temperatura, umidade do ar, pressão e chuva em tempo real. A lógica de irrigação analisa a previsão das próximas horas — se há chuva prevista, o sistema recomenda **NÃO irrigar**, evitando desperdício hídrico.
-
----
-
-### 🗄️ Fase 3 — Banco de Dados de Sensores IoT
-![Fase 3 Banco de Dados](screenshots/04_fase3_banco_dados_sensores.png)
-> Banco de dados SQLite com o mesmo schema da tabela Oracle `SENSORES_SOJA_RM567951` da Fase 3 original. Exibe as 300 leituras com gráficos de evolução temporal de umidade e pH, e scatter plot correlacionando umidade × temperatura com status de irrigação em destaque.
-
-![Fase 3 Inserção](screenshots/05_fase3_insercao_leitura_sensor.png)
-> Formulário de inserção manual de nova leitura de sensor. O sistema decide automaticamente se a irrigação deve ser ativada com base na lógica: `umidade < 60% AND chuva < 1mm`.
-
----
-
-### 🤖 Fase 4 — Machine Learning Preditivo
-![Fase 4 Treinamento](screenshots/06_fase4_ml_treinamento_modelos.png)
-> Pipeline de treinamento com 4 modelos: Regressão Linear (umidade), Regressão Linear (pH), Random Forest (irrigação) e Gradient Boosting (rendimento). Dataset de 300 amostras gerado com `random.seed(42)` para reprodutibilidade total.
-
-![Fase 4 Métricas](screenshots/07_fase4_ml_metricas_r2.png)
-> Métricas reais após treinamento: **R² = 0.93** para irrigação (Random Forest) e **R² = 0.977** para rendimento (Gradient Boosting). O modelo de irrigação captura com alta precisão a lógica determinística de ativação.
-
-![Fase 4 Predição](screenshots/08_fase4_ml_predicao_interativa.png)
-> Interface de predição interativa com sliders. O gestor agrícola ajusta os parâmetros de umidade, pH, temperatura e nutrientes em tempo real e recebe imediatamente o score de irrigação e os alertas baseados em regras de negócio.
-
----
-
-### 📷 Fase 6 — Visão Computacional (YOLOv5)
-![Fase 6 YOLOv5](screenshots/09_fase6_visao_computacional_yolo.png)
-> Módulo de visão computacional para segurança patrimonial da fazenda. Dropdown com as 8 imagens de teste do dataset (4 carros + 4 drones). Upload de imagens externas também suportado.
-
-![Fase 6 Detecção Carro](screenshots/10_fase6_deteccao_carro.png)
-> Detecção de **carro** com alta confiança. O sistema identifica o objeto, retorna bounding box e confidence score. Quando a confiança ultrapassa 70%, o botão de alerta SNS é ativado automaticamente.
-
-![Fase 6 Detecção Drone](screenshots/11_fase6_deteccao_drone.png)
-> Detecção de **drone** não autorizado no perímetro da fazenda. O módulo usa YOLOv5 com fallback simulado baseado no nome do arquivo — mantendo o fluxo completo da UI mesmo sem PyTorch instalado.
-
----
-
-### ☁️ Fase 5 — Mensageria AWS SNS (Email + SMS)
-![AWS SNS Configuração](screenshots/12_fase5_aws_sns_configuracao.png)
-> Página de configuração do serviço AWS SNS na dashboard. Mostra o ARN do tópico configurado (`arn:aws:sns:us-east-1:311141542302:Farmtech_alertas`), as abas de inscrição e disparo de alertas.
-
-![AWS SNS Inscrição](screenshots/13_fase5_aws_sns_inscricao_email.png)
-> Inscrição do e-mail `schmitz.de@icloud.com` no tópico SNS via dashboard. O AWS envia automaticamente um e-mail de confirmação com link de opt-in, garantindo conformidade com as políticas de mensageria.
-
-![AWS SNS Confirmação](screenshots/14_fase5_aws_sns_subscription_confirmed.png)
-> Página de confirmação da AWS: **"Subscription confirmed!"** com o ARN da inscrição gerado: `arn:aws:sns:us-east-1:311141542302:Farmtech_alertas:5c29fffc-...`. A partir deste momento, todos os alertas disparados chegam ao e-mail inscrito.
-
-![AWS SNS Alerta Disparado](screenshots/15_fase5_aws_sns_alerta_disparado.png)
-> Dashboard mostrando `"success": true` com MessageId retornado pela AWS após a publicação do alerta com valores críticos: umidade 45%, pH 5.7, temperatura 32°C, nutrientes 1/3.
-
-![AWS SNS Email Recebido](screenshots/16_fase5_aws_sns_email_recebido.png)
-> **E-mail de alerta recebido** em `schmitz.de@icloud.com` com o conteúdo completo: 4 issues detectadas e 4 ações recomendadas aos funcionários da fazenda (ativar bomba de irrigação, aplicar calcário, monitorar estresse térmico, aplicar fertilizante NPK).
-
----
-
-### 🚀 Ir Além — AWS Rekognition
-![AWS Rekognition](screenshots/17_ir_alem_aws_rekognition.png)
-> Integração com Amazon Rekognition (DetectLabels API). O sistema envia imagens da fazenda via boto3 SDK para a AWS, recebe os rótulos com scores de confiança, mapeia para ações agrícolas específicas e — quando detecta classes críticas como veículos ou pessoas — aciona automaticamente o SNS.
-
----
-
 
 ## 🚀 "Ir Além" — Opção 1: AWS Rekognition
 

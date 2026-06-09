@@ -166,8 +166,9 @@ O tópico `Farmtech_alertas` foi criado no AWS Console → Simple Notification S
 - Conta AWS: `311141542302`
 - Região: `us-east-1`
 
-![SNS Tópico criado](docs/aws/sns_topic_criado.png)
-> _Print do console da AWS mostrando o tópico `Farmtech_alertas` criado com sucesso, incluindo ARN, tipo Standard e ID do proprietário._
+> Criação do tópico SNS com ARN configurado para alertas da fazenda.
+![AWS SNS — Tópico criado](screenshots/12_sns_topic_created.png)
+
 
 ---
 
@@ -176,9 +177,10 @@ O tópico `Farmtech_alertas` foi criado no AWS Console → Simple Notification S
 O ARN foi configurado diretamente em `alerts/sns_alerts.py`:
 
 ```python
-TOPIC_ARN = "arn:aws:sns:us-east-1:311141542302:Farmtech_alertas"
+TOPIC_ARN = "arn:aws:sns:us-east-1:xxxxxxxxxxx:Farmtech_alertas"
 AWS_REGION = "us-east-1"
 ```
+![AWS SNS — Tópico criado (passo 2)](screenshots/13_sns_topic_created_2.png)
 
 As credenciais AWS foram configuradas via `aws configure` com o usuário IAM `richard-adm` (conta `311141542302`).
 
@@ -189,12 +191,16 @@ As credenciais AWS foram configuradas via `aws configure` com o usuário IAM `ri
 O e-mail `xxxxxxx@xxxx.com` foi inscrito no tópico via dashboard → aba "Inscrever email/SMS" → botão "Inscrever email".
 O sistema AWS enviou automaticamente um e-mail de confirmação com um link, que foi clicado para ativar a inscrição.
 
-![SNS Inscrição confirmada](docs/aws/sns_subscription_confirmed.png)
-> _Print da página de confirmação da AWS: "Subscription confirmed! Your subscription's id is: arn:aws:sns:us-east-1:311141542302:Farmtech_alertas:5c29fffc-0f2c-4251-a39f-19d4d5f27cab"_
+![AWS SNS — Inscrição confirmada](screenshots/14_sns_subscription_confirmed.png)
 
 ![SNS Inscrições ativas](docs/aws/sns_subscriptions.png)
-> _Print do console da AWS mostrando a inscrição de e-mail com status "Confirmed" no tópico `Farmtech_alertas`._
+> _Print do console da AWS mostrando a inscrição de e-mail com status "Confirmed" no tópico `Farmtech_alertas`
+>
+> Prova do alerta recebido no e-mail cadastrado, contendo recomendações agrícolas.
+![AWS SNS — Email de alerta recebido](screenshots/11_sns_email_recebido.png)
 
+
+![AWS SNS — Inscrições ativas](screenshots/15_sns_active_subscriptions.png)
 ---
 
 **4. Alerta disparado e recebido**
@@ -286,23 +292,6 @@ Todas as capturas abaixo foram feitas durante a execução real do sistema em `h
 ### 📷 Fase 6 — Visão Computacional (YOLOv5)
 ![Fase 6 — Visão Computacional (YOLOv5)](screenshots/06_fase6_visao.png)
 > Inferência de objetos com YOLOv5 para identificar carros e drones na fazenda.
-
----
-> Criação do tópico SNS com ARN configurado para alertas da fazenda.
-![AWS SNS — Tópico criado](screenshots/12_sns_topic_created.png)
-
-> Visualização adicional do tópico criado e das configurações do canal de notificações.
-![AWS SNS — Tópico criado (passo 2)](screenshots/13_sns_topic_created_2.png)
-
-> E-mail de confirmação de inscrição no tópico, necessário para receber alertas.
-![AWS SNS — Inscrição confirmada](screenshots/14_sns_subscription_confirmed.png)
-
-> Lista de assinantes ativos no tópico SNS, mostrando e-mail confirmado.
-![AWS SNS — Inscrições ativas](screenshots/15_sns_active_subscriptions.png)
-
-> Prova do alerta recebido no e-mail cadastrado, contendo recomendações agrícolas.
-![AWS SNS — Email de alerta recebido](screenshots/11_sns_email_recebido.png)
-
 
 ---
 

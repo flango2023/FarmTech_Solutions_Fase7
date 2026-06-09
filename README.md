@@ -418,17 +418,6 @@ Modelos treinados com dataset sintético de **300 amostras** gerado com `random.
 
 ---
 
-## 🧩 Mapeamento Fase ↔ Entregável do enunciado
-
-| Item do enunciado | Onde está |
-|-------------------|-----------|
-| Dashboard final integrando Fases 1, 2, 3 e 6 | `app.py` + `phases/` |
-| Serviço de mensageria AWS para alertas | `alerts/sns_alerts.py` + página "Fase 5 — AWS SNS" |
-| Estrutura de pastas espelhada com GitHub | Conforme árvore acima |
-| Documentação no README | Este arquivo + `docs/architecture.md` |
-| Vídeo demonstrativo no YouTube | Link no topo |
-| "Ir Além" — AWS Rekognition | `rekognition/aws_rekognition.py` + página "Ir Além" |
-
 ---
 
 ## 📚 Histórico das fases anteriores
@@ -447,7 +436,7 @@ Modelos treinados com dataset sintético de **300 amostras** gerado com `random.
 
 ## 📄 Licença
 
-MIT License — Richard Schmitz, FIAP 2026.
+— Richard Schmitz, FIAP 2026.
 
 ---
 

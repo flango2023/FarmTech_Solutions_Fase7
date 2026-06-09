@@ -25,76 +25,6 @@
 > 🎬 **["Ir Além" — AWS Rekognition (até 5 min)](https://youtu.be/COLE_AQUI_O_LINK_IR_ALEM)**
 
 ---
-
-## 📸 Screenshots do sistema em funcionamento
-
-Todas as capturas abaixo foram feitas durante a execução real do sistema em `http://localhost:8501`.
-
-### 🏠 Dashboard — Visão Geral
-![Dashboard — Visão Geral](screenshots/01_dashboard.png)
-> Tela inicial do sistema consolidado mostrando os KPIs e a integração das fases.
-
----
-
-### 🌱 Fase 1 — Cálculo de Área e Gestão de Insumos
-![Cálculo de Área e Gestão de Insumos](screenshots/02_fase1_area_insumos.png)
-> Cadastro de culturas com cálculo automático de área e dosagem de insumos.
-
----
-
-### 🌦️ Fase 2 — Integração com API Meteorológica
-![Fase 2 — Integração com API Meteorológica](screenshots/03_fase2_clima.png)
-> Consulta à API OpenWeather com fallback simulado e recomendação de irrigação.
-
----
-
-### 🗄️ Fase 3 — Banco de Dados de Sensores IoT
-![Fase 3 — Banco de Dados de Sensores IoT](screenshots/04_fase3_banco_dados.png)
-> Exibição de leituras de sensores em SQLite e análise de dados históricos.
-
----
-
-### 🤖 Fase 4 — Machine Learning Preditivo
-![Fase 4 — Machine Learning Preditivo](screenshots/05_fase4_ml.png)
-> Pipeline de treinamento de modelos e predições interativas na dashboard.
-
----
-
-### 📷 Fase 6 — Visão Computacional (YOLOv5)
-![Fase 6 — Visão Computacional (YOLOv5)](screenshots/06_fase6_visao.png)
-> Inferência de objetos com YOLOv5 para identificar carros e drones na fazenda.
-
----
-
-### ☁️ Fase 5 — Mensageria AWS SNS (Email + SMS)
-![☁️ Fase 5 — Mensageria AWS SNS (Email + SMS)](screenshots/07_fase5_sns.png)
-> Configuração e envio de alertas por AWS SNS para e-mail e SMS.
-
-![AWS SNS — Tópico criado](screenshots/12_sns_topic_created.png)
-> Criação do tópico SNS com ARN configurado para alertas da fazenda.
-
-![AWS SNS — Tópico criado (passo 2)](screenshots/13_sns_topic_created_2.png)
-> Visualização adicional do tópico criado e das configurações do canal de notificações.
-
-![AWS SNS — Inscrição confirmada](screenshots/14_sns_subscription_confirmed.png)
-> E-mail de confirmação de inscrição no tópico, necessário para receber alertas.
-
-![AWS SNS — Inscrições ativas](screenshots/15_sns_active_subscriptions.png)
-> Lista de assinantes ativos no tópico SNS, mostrando e-mail confirmado.
-
-![AWS SNS — Email de alerta recebido](screenshots/11_sns_email_recebido.png)
-> Prova do alerta recebido no e-mail cadastrado, contendo recomendações agrícolas.
-
----
-
-### 🚀 Ir Além — AWS Rekognition
-![Ir Além — AWS Rekognition 1](screenshots/08_rekognition_1.png)
-![Ir Além — AWS Rekognition 2](screenshots/09_rekognition_2.png)
-![Ir Além — AWS Rekognition 3](screenshots/10_rekognition_3.png)
-> Análise de imagens na nuvem com Amazon Rekognition e acionamento de alertas automáticos.
-
----
-
 ## 📋 Sobre o projeto
 
 A Fase 7 consolida em um **único projeto Python** todos os serviços construídos ao longo do curso da FIAP, das Fases 1 a 6, integrando-os em uma **dashboard Streamlit unificada**. Cada fase aparece como uma página no menu lateral, com botões que disparam o serviço correspondente.
@@ -316,6 +246,68 @@ Please log in to the FarmTech dashboard for full details.
 
 ---
 
+## 📸 Screenshots do sistema em funcionamento
+
+Todas as capturas abaixo foram feitas durante a execução real do sistema em `http://localhost:8501`.
+
+### 🏠 Dashboard — Visão Geral
+![Dashboard — Visão Geral](screenshots/01_dashboard.png)
+> Tela inicial do sistema consolidado mostrando os KPIs e a integração das fases.
+
+---
+
+### 🌱 Fase 1 — Cálculo de Área e Gestão de Insumos
+![Cálculo de Área e Gestão de Insumos](screenshots/02_fase1_area_insumos.png)
+> Cadastro de culturas com cálculo automático de área e dosagem de insumos.
+
+---
+
+### 🌦️ Fase 2 — Integração com API Meteorológica
+![Fase 2 — Integração com API Meteorológica](screenshots/03_fase2_clima.png)
+> Consulta à API OpenWeather com fallback simulado e recomendação de irrigação.
+
+---
+
+### 🗄️ Fase 3 — Banco de Dados de Sensores IoT
+![Fase 3 — Banco de Dados de Sensores IoT](screenshots/04_fase3_banco_dados.png)
+> Exibição de leituras de sensores em SQLite e análise de dados históricos.
+
+---
+
+### 🤖 Fase 4 — Machine Learning Preditivo
+![Fase 4 — Machine Learning Preditivo](screenshots/05_fase4_ml.png)
+> Pipeline de treinamento de modelos e predições interativas na dashboard.
+
+---
+### ☁️ Fase 5 — Mensageria AWS SNS (Email + SMS)
+![☁️ Fase 5 — Mensageria AWS SNS (Email + SMS)](screenshots/07_fase5_sns.png)
+> Configuração e envio de alertas por AWS SNS para e-mail e SMS.
+
+### 📷 Fase 6 — Visão Computacional (YOLOv5)
+![Fase 6 — Visão Computacional (YOLOv5)](screenshots/06_fase6_visao.png)
+> Inferência de objetos com YOLOv5 para identificar carros e drones na fazenda.
+
+---
+> Criação do tópico SNS com ARN configurado para alertas da fazenda.
+![AWS SNS — Tópico criado](screenshots/12_sns_topic_created.png)
+
+> Visualização adicional do tópico criado e das configurações do canal de notificações.
+![AWS SNS — Tópico criado (passo 2)](screenshots/13_sns_topic_created_2.png)
+
+> E-mail de confirmação de inscrição no tópico, necessário para receber alertas.
+![AWS SNS — Inscrição confirmada](screenshots/14_sns_subscription_confirmed.png)
+
+> Lista de assinantes ativos no tópico SNS, mostrando e-mail confirmado.
+![AWS SNS — Inscrições ativas](screenshots/15_sns_active_subscriptions.png)
+
+> Prova do alerta recebido no e-mail cadastrado, contendo recomendações agrícolas.
+![AWS SNS — Email de alerta recebido](screenshots/11_sns_email_recebido.png)
+
+
+---
+
+
+
 ---
 
 ## 🚀 "Ir Além" — Opção 1: AWS Rekognition
@@ -327,6 +319,14 @@ Implementamos integração com **Amazon Rekognition** para analisar imagens da f
 - **Pré-treinado em milhões de imagens** — reconhece pessoas, veículos, animais, plantas, fogo, fumaça etc. sem necessidade de treinamento.
 - **Escalável e gerenciado** — sem manter GPUs nem ambiente PyTorch em produção.
 - **Combina com SNS** — quando o Rekognition detecta uma classe sensível (ex.: pessoa estranha, fogo), o sistema dispara automaticamente um alerta via SNS.
+
+- ## 🚀 Ir Além — AWS Rekognition
+![Ir Além — AWS Rekognition 1](screenshots/08_rekognition_1.png)
+![Ir Além — AWS Rekognition 2](screenshots/09_rekognition_2.png)
+![Ir Além — AWS Rekognition 3](screenshots/10_rekognition_3.png)
+> Análise de imagens na nuvem com Amazon Rekognition e acionamento de alertas automáticos.
+
+---
 
 ### Como funciona neste projeto
 

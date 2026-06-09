@@ -10,8 +10,6 @@
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![YOLOv5](https://img.shields.io/badge/YOLOv5-v7.0-green.svg)](https://github.com/ultralytics/yolov5)
-[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/flango2023/FarmTech-Solutions-Fase6/blob/main/RichardSchmitz_rm567951_pbl_fase6.ipynb)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **Autor:** Richard Schmitz | **RM:** 567951  
 **Disciplina:** Artificial Intelligence — FIAP  

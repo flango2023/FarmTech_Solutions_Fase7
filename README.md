@@ -19,7 +19,7 @@
 
 ---
 
-## 📋 Descrição do projeto
+##  Descrição do projeto
 
 A Fase 7 consolida em um **único projeto Python** todos os serviços construídos ao longo do curso da FIAP, das Fases 1 a 6, integrando-os em uma **dashboard Streamlit unificada**. Cada fase aparece como uma página no menu lateral, com botões que disparam o serviço correspondente.
 

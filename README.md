@@ -159,12 +159,6 @@ O sistema usa **Amazon SNS** para entrega de alertas. Os funcionários se inscre
 
 **1. Criação do tópico SNS**
 
-O tópico `Farmtech_alertas` foi criado no AWS Console → Simple Notification Service → Topics → Create topic:
-- Tipo: **Standard**
-- Nome: `Farmtech_alertas`
-- ARN gerado: `arn:aws:sns:us-east-1:311141542302:Farmtech_alertas`
-- Conta AWS: `311141542302`
-- Região: `us-east-1`
 
 > Criação do tópico SNS com ARN configurado para alertas da fazenda.
 ![AWS SNS — Tópico criado](screenshots/12_sns_topic_created.png)

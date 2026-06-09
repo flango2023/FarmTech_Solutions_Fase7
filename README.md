@@ -343,22 +343,6 @@ Imagem (local ou S3)
       (Email + SMS)
 ```
 
-📸 _Inclua print: `docs/aws/rekognition_console.png` — tela de configuração do Rekognition._
-📸 _Inclua print: `docs/aws/rekognition_resultado.png` — resultado de DetectLabels._
-📸 _Inclua print: `docs/aws/iam_rekognition_policy.png` — política IAM `rekognition:DetectLabels`._
-
-### Passo a passo
-
-1. **Habilite o Rekognition no console** (us-east-1 recomendado).
-2. **Crie um usuário IAM** com a policy gerenciada `AmazonRekognitionReadOnlyAccess`.
-3. **Use `aws configure`** com as credenciais do usuário criado.
-4. **Abra a dashboard → "Ir Além — AWS Rekognition"**, escolha uma imagem, clique em "Analisar".
-5. O sistema mostra:
-   - Rótulos com confiança
-   - Categorias agrupadas
-   - Ações sugeridas para a fazenda
-   - Botão para disparar SNS se necessário
-
 ---
 
 ## 🧠 Decisões técnicas relevantes

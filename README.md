@@ -17,11 +17,19 @@
 </p>
 
 
+## 🎥 Vídeo demonstrativo
+
+> 🎬 **[Demonstração da Fase 7 (até 10 min)](https://youtu.be/COLE_AQUI_O_LINK)**
+> _Postado no YouTube como "não listado"._
+>
+> 🎬 **["Ir Além" — AWS Rekognition (até 5 min)](https://youtu.be/COLE_AQUI_O_LINK_IR_ALEM)**
+
+
 ---
 
 ##  Descrição do projeto
 
-A Fase 7 consolida em um **único projeto Python** todos os serviços construídos ao longo do curso da FIAP, das Fases 1 a 6, integrando-os em uma **dashboard Streamlit unificada**. Cada fase aparece como uma página no menu lateral, com botões que disparam o serviço correspondente.
+A Fase 7 consolida, em um único projeto em Python, todos os serviços construídos ao longo do curso da FIAP, das Fases 1 a 6, integrando-os em uma dashboard unificada do Streamlit. Cada fase aparece como uma página no menu lateral, com botões que disparam o serviço correspondente.
 
 Além disso, esta fase entrega:
 - 🔔 **Serviço AWS SNS** que dispara alertas por **e-mail e SMS** aos funcionários da fazenda, baseado em leituras dos sensores das Fases 1, 3 ou nas detecções da Fase 6.
@@ -238,14 +246,6 @@ Please log into the FarmTech dashboard for full details.
 | Detecção de drone/carro | Inspecionar perímetro imediatamente |
 
 ---
-
-
-## 🎥 Vídeo demonstrativo
-
-> 🎬 **[Demonstração da Fase 7 (até 10 min)](https://youtu.be/COLE_AQUI_O_LINK)**
-> _Postado no YouTube como "não listado"._
->
-> 🎬 **["Ir Além" — AWS Rekognition (até 5 min)](https://youtu.be/COLE_AQUI_O_LINK_IR_ALEM)**
 
 ---
 

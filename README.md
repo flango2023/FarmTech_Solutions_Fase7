@@ -376,8 +376,6 @@ Imagem (local ou S3)
    - Ações sugeridas para a fazenda
    - Botão para disparar SNS se necessário
 
-> ⚠️ Atenção: Rekognition é pago após a free tier (5 000 imagens/mês). Em conta de aluno (Learner Lab), o serviço pode ser bloqueado — neste caso, anexe os prints feitos antes do bloqueio.
-
 ---
 
 ## 🧠 Decisões técnicas relevantes

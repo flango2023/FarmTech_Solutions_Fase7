@@ -6,7 +6,7 @@
 
 <br>
 
-# FarmTech Solutions — Fase 7: A Consolidação de um Sistema
+## FarmTech Solutions — Fase 7: A Consolidação de um Sistema
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![YOLOv5](https://img.shields.io/badge/YOLOv5-v7.0-green.svg)](https://github.com/ultralytics/yolov5)

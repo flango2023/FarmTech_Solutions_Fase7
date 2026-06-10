@@ -29,11 +29,8 @@
 
 ## Vídeo Demonstrativo
 
-> **[Demonstração completa — Fase 7 (até 10 min)](https://youtu.be/COLE_AQUI_O_LINK)**
+> **[Demonstração completa — Fase 7 (até 10 min)](https://youtu.be/stqvxLh3PSA)**
 > Postado no YouTube como "não listado". Demonstra todas as fases integradas na dashboard.
->
-> **["Ir Além" — AWS Rekognition (até 5 min)](https://youtu.be/COLE_AQUI_O_LINK_IR_ALEM)**
-> Demonstração do reconhecimento de imagens em nuvem via Amazon Rekognition.
 
 ---
 

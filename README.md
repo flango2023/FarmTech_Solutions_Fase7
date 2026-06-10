@@ -52,31 +52,38 @@ Esta entrega inclui ainda:
 
 ```mermaid
 graph TB
-    classDef core fill:#3776AB,stroke:#1a4a7a,color:#fff,font-weight:bold
-    classDef dashboard fill:#FF4B4B,stroke:#b03535,color:#fff
-    classDef ml fill:#F7931E,stroke:#b36200,color:#fff
-    classDef vision fill:#00BFFF,stroke:#0080cc,color:#fff
-    classDef cloud fill:#FF9900,stroke:#b36b00,color:#fff
-    classDef data fill:#336791,stroke:#1a3a5c,color:#fff
+    classDef core    fill:#3776AB,stroke:#1a4a7a,color:#fff,font-weight:bold
+    classDef dash    fill:#FF4B4B,stroke:#b03535,color:#fff
+    classDef ml      fill:#F7931E,stroke:#b36200,color:#fff
+    classDef vision  fill:#1E90FF,stroke:#0050b3,color:#fff
+    classDef cloud   fill:#FF9900,stroke:#b36b00,color:#fff
+    classDef data    fill:#336791,stroke:#1a3a5c,color:#fff
+    classDef tools   fill:#6f42c1,stroke:#4b2d8f,color:#fff
+    classDef pattern fill:#28A745,stroke:#1e7e34,color:#fff
 
     PY["Python 3.10+"]:::core
 
-    PY --> FE
+    PY --> FW
+    PY --> VF
     PY --> ML
     PY --> VC
     PY --> CL
     PY --> DB
 
-    subgraph FE["Dashboard & Visualizacao"]
-        ST["Streamlit 1.32+"]:::dashboard
-        PL["Plotly 5.18+"]:::dashboard
-        PD["Pandas 2.0+"]:::dashboard
+    subgraph FW["Linguagem & Frameworks"]
+        ST["Streamlit 1.32+"]:::core
+        BO["boto3 1.34+"]:::core
+    end
+
+    subgraph VF["Visualizacao & Frontend"]
+        PL["Plotly 5.18+"]:::dash
+        PD["Pandas 2.0+"]:::dash
+        NP["NumPy 1.24+"]:::dash
     end
 
     subgraph ML["Machine Learning"]
         SK["scikit-learn 1.3+"]:::ml
         JL["joblib 1.3+"]:::ml
-        NP["NumPy 1.24+"]:::ml
     end
 
     subgraph VC["Visao Computacional"]
@@ -86,82 +93,34 @@ graph TB
     end
 
     subgraph CL["Cloud AWS"]
-        BO["boto3 1.34+"]:::cloud
         SNS["Amazon SNS"]:::cloud
         REK["Rekognition"]:::cloud
+        IAM["IAM"]:::cloud
+        BO2["boto3 1.34+"]:::cloud
     end
 
     subgraph DB["Dados & Banco"]
         SQ["SQLite 3.x"]:::data
-        RQ["requests 2.31+"]:::data
+        CSV["dados_sensores.csv"]:::data
+        JSON["metricas.json"]:::data
     end
+
+    subgraph TL["Ferramentas"]
+        VS["VS Code"]:::tools
+        CC["Claude Code"]:::tools
+        GH["Git + GitHub"]:::tools
+    end
+
+    subgraph PT["Padroes"]
+        S42["seed=42"]:::pattern
+        FB["Fallback"]:::pattern
+        MOD["Modular"]:::pattern
+        ORA["Oracle-compat"]:::pattern
+    end
+
+    PY --> TL
+    PY --> PT
 ```
-
-### Linguagem & Frameworks
-
-| Tecnologia | Versão | Uso no Projeto |
-|-----------|--------|----------------|
-| Python | `3.10+` | Linguagem principal — todos os módulos |
-| Streamlit | `1.32+` | Dashboard multi-página (8 páginas) |
-| boto3 | `1.34+` | SDK AWS — SNS e Rekognition |
-
-### Visualização & Frontend
-
-| Tecnologia | Versão | Uso no Projeto |
-|-----------|--------|----------------|
-| Plotly | `5.18+` | Gráficos de séries temporais e métricas |
-| Pandas | `2.0+` | Manipulação de dados tabulares |
-| NumPy | `1.24+` | Operações numéricas e geração de dados sintéticos |
-
-### Machine Learning
-
-| Tecnologia | Versão | Uso no Projeto |
-|-----------|--------|----------------|
-| scikit-learn | `1.3+` | Linear Regression, Random Forest, Gradient Boosting, StandardScaler |
-| joblib | `1.3+` | Serialização e carregamento dos modelos `.pkl` |
-
-### Visão Computacional
-
-| Tecnologia | Detalhe | Uso no Projeto |
-|-----------|---------|----------------|
-| YOLOv5 | `v7.0` | Detecção de objetos (carros e drones) em imagens |
-| PyTorch | `hub.load` | Carregamento do modelo YOLOv5 pré-treinado |
-| Pillow | `10.0+` | Processamento de imagens na dashboard |
-
-### Cloud AWS
-
-| Serviço | Uso no Projeto |
-|---------|----------------|
-| Amazon SNS | Publica alertas para e-mail e SMS dos funcionários |
-| Amazon Rekognition | DetectLabels API — análise de imagens em nuvem |
-| IAM | Usuário `richard-adm` com políticas `sns:Publish` e `rekognition:DetectLabels` |
-
-### Dados & Banco de Dados
-
-| Tecnologia | Detalhe | Uso no Projeto |
-|-----------|---------|----------------|
-| SQLite | `3.x` | Banco local com schema idêntico ao Oracle das fases anteriores |
-| CSV | `dados_sensores.csv` | 300 leituras históricas de sensores IoT (seed=42) |
-| JSON | `metricas.json` | Métricas de avaliação dos modelos ML |
-
-### Ferramentas de Desenvolvimento
-
-| Ferramenta | Uso |
-|-----------|-----|
-| VS Code | Editor de código principal |
-| Claude Code (Anthropic) | Assistente de desenvolvimento |
-| Git + GitHub | Controle de versão e repositório remoto |
-| macOS Terminal | Execução e testes locais |
-
-### Padrões e Boas Práticas
-
-| Prática | Implementação |
-|---------|--------------|
-| Reprodutibilidade | `random.seed(42)` — dataset e modelos idênticos em qualquer ambiente |
-| Fallback | YOLOv5 → simulação por nome de arquivo; OpenWeather → dados sintéticos com ciclo diário |
-| Arquitetura modular | Módulos separados por fase: `phases/`, `alerts/`, `rekognition/` |
-| Schema Oracle-compatível | SQLite com as mesmas colunas do Oracle — migração sem reescrita de SQL |
-| Gitignore | `.venv/`, `farmtech.db`, `uploaded/`, `.env` excluídos do repositório |
 
 ### Créditos das Imagens de Teste
 

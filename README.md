@@ -342,18 +342,11 @@ Acesse **AWS Console → Simple Notification Service → Topics → Create topic
 > Formulário "Create topic" com tipo Standard selecionado e campo Name preenchido — capturado antes de confirmar a criação, conforme exigido pela FIAP.
 
 ![SNS — Tópico criado com sucesso](screenshots/13_sns_topic_created_2.png)
-> Banner "Topic alertas created successfully". ARN gerado: `arn:aws:sns:us-east-1:311141542302:Farmtech_alertas` · Tipo: Standard · Conta: 311141542302 · Região: us-east-1.
+> Banner "Topic alertas created successfully". Tópico do tipo Standard criado na região us-east-1 com nome `Farmtech_alertas`.
 
 **2. Configuração do ARN no código**
 
-O ARN foi inserido em `alerts/sns_alerts.py`:
-
-```python
-TOPIC_ARN = "arn:aws:sns:us-east-1:311141542302:Farmtech_alertas"
-AWS_REGION = "us-east-1"
-```
-
-Credenciais configuradas via `aws configure` com o usuário IAM `richard-adm`.
+O ARN do tópico foi inserido em `alerts/sns_alerts.py` nas variáveis `TOPIC_ARN` e `AWS_REGION`. Credenciais configuradas via `aws configure` com usuário IAM dedicado.
 
 **3. Inscrição de e-mail e confirmação**
 
@@ -361,7 +354,7 @@ Credenciais configuradas via `aws configure` com o usuário IAM `richard-adm`.
 > E-mail recebido da AWS com link "Confirm subscription" para o tópico `Farmtech_alertas`. Ao clicar, a inscrição é ativada.
 
 ![SNS — Inscrição confirmada](screenshots/15_sns_active_subscriptions.png)
-> Página AWS confirma: "Subscription confirmed!" com ID `arn:aws:sns:us-east-1:311141542302:Farmtech_alertas:5c29fffc-0f2c-4251-a39f-19d4d5f27cab`.
+> Página AWS confirma: "Subscription confirmed!" — inscrição ativa para o tópico `Farmtech_alertas`.
 
 **4. Alerta disparado e recebido**
 

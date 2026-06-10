@@ -29,7 +29,7 @@
 
 ## Vídeo Demonstrativo
 
-> **[Demonstração completa — Fase 7 (até 10 min)](https://youtu.be/stqvxLh3PSA)**
+> **[Demonstração completa — Fase 7 ](https://youtu.be/stqvxLh3PSA)**
 > Postado no YouTube como "não listado". Demonstra todas as fases integradas na dashboard.
 
 ---
